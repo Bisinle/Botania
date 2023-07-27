@@ -1,0 +1,55 @@
+:root {
+  --mainColor: #61dafb;
+  --secondary: #50596d;
+}
+
+.bot {
+  width: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  justify-content: center;
+}
+.bot li {
+  text-decoration: none;
+}
+.bot .card {
+  width: 12rem;
+  height: 21rem;
+  margin: 10px;
+  text-decoration: none;
+  background-color: #383f4f;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 2px solid white;
+  padding: 0;
+}
+.bot .card-img-top {
+  width: 90%;
+  margin-top: 0;
+}
+.bot .card .catchphrase {
+}
+.bot .card .card-body {
+  margin: 0px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.bot .icons {
+}
+.bot .icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  color: white;
+}
+.bot .icons span i {
+  color: var(--mainColor);
+  font-size: 16px;
+  margin: 0 5px;
+}
