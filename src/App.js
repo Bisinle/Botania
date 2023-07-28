@@ -1,26 +1,34 @@
 import "./App.css";
 import React from "react";
-import BotList from "./Components/BotList";
-import { createContext, useState, useEffect } from "react";
+//Context and Hooks
+import { useContext, useState, useEffect } from "react";
 import styles from "./Components/Component-Styles/Styles.css";
-
-export const dataContext = createContext();
-
+//Components
+import BotSpecs from "./Components/BotSpecs";
+import BotList from "./Components/BotList";
+//Rountes
+import { Route, Routes } from "react-router-dom";
+import Bot from "./Components/Bot";
+import BotArmy from "./Components/BotArmy";
 function App() {
-  const [botData, setBotData] = useState([]);
-  useEffect(() => {
-    fetch(`  http://localhost:4000/bots`)
-      .then((res) => res.json())
-      .then((data) => setBotData(data));
-  }, []);
-  const values = [botData, setBotData];
+  const [enlistArmy, setEnlistArmy] = useState([]);
+  function updateEnlistedBots(enlistBot) {
+    // console.log(enlistedBots);
+
+    setEnlistArmy((prev) => [...prev, enlistBot]);
+  }
+
   return (
-    <dataContext.Provider value={values}>
-      <div className="App">
-        <h1>OUR APP</h1>
-        <BotList />
-      </div>
-    </dataContext.Provider>
+    <div className="App">
+      <BotArmy bot={enlistArmy} />
+      <Routes>
+        <Route path="/" element={<BotList />} />
+        <Route
+          path="botSpecs/:id"
+          element={<BotSpecs updateEnlistedBots={updateEnlistedBots} />}
+        />
+      </Routes>
+    </div>
   );
 }
 
