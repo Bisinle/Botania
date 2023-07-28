@@ -23,10 +23,7 @@ function App() {
       <BotArmy bot={enlistArmy} />
       <Routes>
         <Route path="/" element={<BotList />} />
-        <Route
-          path="botSpecs/:id"
-          element={<BotSpecs updateEnlistedBots={updateEnlistedBots} />}
-        />
+        <Route path="botSpecs/:id" />
       </Routes>
     </div>
   );
