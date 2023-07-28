@@ -42,7 +42,7 @@ function BotArmy({ bots }) {
   }
   return (
     <div className="bot-army">
-      <h1>To Battle !!</h1>
+      <h1>To Baaattle !!</h1>
       {enlistedBots.map((bot) => (
         <div className="card" key={bot.id}>
           <img src={bot.avatar_url} className="card-img-top" alt="..." />

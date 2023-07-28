@@ -5,6 +5,7 @@ import BotSpecs from "./BotSpecs";
 import { dataContext } from "../data/DataContextProvider";
 import { Link } from "react-router-dom";
 import SortBar from "./SortBar";
+import FilterBar from "./FilterBar";
 function BotList({ sortValueState }) {
   const { botData, setBotData, isLoading } = useContext(dataContext);
   console.log(sortValueState);
@@ -35,12 +36,17 @@ function BotList({ sortValueState }) {
   return (
     <div className="bot">
       {isLoading ? <h1>Loading...</h1> : <h1>BOT COLLECTION</h1>}
-      <SortBar onSortChange={handleSortChange} />
-      {sortedBotData.map((bot) => (
-        <Link key={bot.id} to={`botSpecs/${bot.id}`}>
-          <Bot bot={bot} />
-        </Link>
-      ))}
+      <div className="sort-bar">
+        <FilterBar />
+        <SortBar onSortChange={handleSortChange} />
+      </div>
+      <div className="collection">
+        {sortedBotData.map((bot) => (
+          <Link key={bot.id} to={`botSpecs/${bot.id}`}>
+            <Bot bot={bot} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

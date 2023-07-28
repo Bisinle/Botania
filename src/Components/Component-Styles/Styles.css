@@ -15,6 +15,7 @@
 
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   color: black;
   justify-content: center;
   text-align: center;
@@ -26,8 +27,16 @@
   color: var(--mainColor);
 }
 
-.bot li {
+.bot a {
   text-decoration: none;
+}
+.collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px auto;
 }
 .bot.card {
   width: 12rem;
@@ -181,4 +190,13 @@
   width: 100%;
   margin: 20px auto;
   color: var(--mainColor);
+}
+
+/******************************************************/
+#sort-bar {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  color: var(--mainColor);
+  background-color: var(--secondary);
 }

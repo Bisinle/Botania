@@ -9,7 +9,7 @@ function SortBar({ onSortChange }) {
   }
 
   return (
-    <select name="" id="" onChange={sortHandle}>
+    <select name="" id="sort-bar" onChange={sortHandle}>
       <option value="All">Sort By</option>
       <option value="Health">Health</option>
       <option value="Damage">Damage</option>
