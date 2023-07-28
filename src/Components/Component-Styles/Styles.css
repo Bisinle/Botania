@@ -25,6 +25,7 @@
   margin: 20px auto;
   color: var(--mainColor);
 }
+
 .bot li {
   text-decoration: none;
 }
@@ -162,6 +163,7 @@
   background-color: #383f4f;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex-wrap: wrap;
   border: 2px solid white;
   padding: 0;
@@ -172,4 +174,11 @@
 .bot-army .card img {
   width: 100px;
   text-align: center;
+}
+
+.bot-army h1 {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  color: var(--mainColor);
 }

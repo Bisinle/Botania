@@ -18,6 +18,7 @@ export default function BotSpecs({ updateEnlistedBots }) {
   function handleEnlist(bot) {
     // console.log(bot);
     updateEnlistedBots(bot);
+    navigate(-1);
   }
   return (
     <div className="bot-specs">

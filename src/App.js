@@ -10,29 +10,25 @@ import BotList from "./Components/BotList";
 import { Route, Routes } from "react-router-dom";
 import Bot from "./Components/Bot";
 import BotArmy from "./Components/BotArmy";
+import SortBar from "./Components/SortBar";
 function App() {
   const [enlistArmy, setEnlistArmy] = useState([]);
+  const [sortValueState, setSortValueState] = useState("");
 
   function updateEnlistedBots(enlistBot) {
-    // Check if the enlistBot already exists in enlistArmy
-    const botExists = enlistArmy.some(
-      (thisItem) => thisItem.id === enlistBot.id
-    );
-    //we can use enlistArmy.find(thisItem) => thisItem.id === enlistBot.id
-    // );
-
-    console.log(botExists);
-    if (!botExists) {
-      // If the bot doesn't exist, add it to the enlistArmy array
-      setEnlistArmy((prevEnlistArmy) => [...prevEnlistArmy, enlistBot]);
-    }
+    setEnlistArmy(enlistBot);
+  }
+  function getSortValues(sortValue) {
+    // console.log(sortValue);
+    setSortValueState(sortValue);
   }
 
   return (
     <div className="App">
+      <SortBar getSortValues={getSortValues} />
       <BotArmy bots={enlistArmy} />
       <Routes>
-        <Route path="/" element={<BotList />} />
+        <Route path="/" element={<BotList sortValueState={sortValueState} />} />
         <Route
           path="botSpecs/:id"
           element={<BotSpecs updateEnlistedBots={updateEnlistedBots} />}
