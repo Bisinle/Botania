@@ -3,17 +3,34 @@ import { Outlet } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { dataContext } from "../App";
 
-function BotArmy({ bot }) {
+function BotArmy({ bots }) {
   const [enlistedBots, setEnlistedBots] = useState([]);
+  const [filteredBots, setFilteredBOts] = useState([]);
+  useEffect(() => {
+    setEnlistedBots(bots);
+  }, [bots]);
+  useEffect(() => {
+    setEnlistedBots(filteredBots);
+    console.log(filteredBots);
+  }, [filteredBots]);
 
-  console.log(bot);
-  if (bot.length === 0) {
+  // console.log(bot);
+  if (enlistedBots.length === 0) {
     return <h1>No Army yet</h1>;
+  }
+
+  function handleRemove(removingBOt) {
+    console.log(removingBOt);
+    const removeAbot = enlistedBots.filter(
+      (thisBOt) => removingBOt.id !== thisBOt.id
+    );
+    console.log(removeAbot);
+    setFilteredBOts(removeAbot);
   }
   return (
     <div className="bot-army">
-      {bot.map((bot) => (
-        <div className="card">
+      {enlistedBots.map((bot) => (
+        <div className="card" key={bot.id}>
           <img src={bot.avatar_url} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{bot.name}</h5>
@@ -35,6 +52,7 @@ function BotArmy({ bot }) {
               {bot.armor}
             </span>
           </div>
+          <button onClick={() => handleRemove(bot)}>remove</button>
         </div>
       ))}
     </div>

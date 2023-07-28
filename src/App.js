@@ -12,15 +12,25 @@ import Bot from "./Components/Bot";
 import BotArmy from "./Components/BotArmy";
 function App() {
   const [enlistArmy, setEnlistArmy] = useState([]);
-  function updateEnlistedBots(enlistBot) {
-    // console.log(enlistedBots);
 
-    setEnlistArmy((prev) => [...prev, enlistBot]);
+  function updateEnlistedBots(enlistBot) {
+    // Check if the enlistBot already exists in enlistArmy
+    const botExists = enlistArmy.some(
+      (thisItem) => thisItem.id === enlistBot.id
+    );
+    //we can use enlistArmy.find(thisItem) => thisItem.id === enlistBot.id
+    // );
+
+    console.log(botExists);
+    if (!botExists) {
+      // If the bot doesn't exist, add it to the enlistArmy array
+      setEnlistArmy((prevEnlistArmy) => [...prevEnlistArmy, enlistBot]);
+    }
   }
 
   return (
     <div className="App">
-      <BotArmy bot={enlistArmy} />
+      <BotArmy bots={enlistArmy} />
       <Routes>
         <Route path="/" element={<BotList />} />
         <Route
