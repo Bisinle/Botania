@@ -25,10 +25,17 @@ function App() {
 
   return (
     <div className="App">
-      <SortBar getSortValues={getSortValues} />
       <BotArmy bots={enlistArmy} />
       <Routes>
-        <Route path="/" element={<BotList sortValueState={sortValueState} />} />
+        <Route
+          path="/"
+          element={
+            <BotList
+              getSortValues={getSortValues}
+              sortValueState={sortValueState}
+            />
+          }
+        />
         <Route
           path="botSpecs/:id"
           element={<BotSpecs updateEnlistedBots={updateEnlistedBots} />}
