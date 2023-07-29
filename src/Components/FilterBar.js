@@ -44,54 +44,76 @@ function FilterBar({ onSubmitHandle }) {
         </label>
         {isDropdownOpen && (
           <div className="checkboxes">
-            <label htmlFor="Support">Support</label>
-            <input
-              type="checkbox"
-              name="Support"
-              checked={botClass.Support}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="Medic">Medic</label>
-            <input
-              type="checkbox"
-              name="Medic"
-              checked={botClass.Medic}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="Assault">Assault</label>
-            <input
-              type="checkbox"
-              name="Assault"
-              checked={botClass.Assault}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="Captain">Captain</label>
-            <input
-              type="checkbox"
-              name="Captain"
-              checked={botClass.Captain}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="Defender">Defender</label>
-            <input
-              type="checkbox"
-              name="Defender"
-              checked={botClass.Defender}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="Witch">Witch</label>
-            <input
-              type="checkbox"
-              name="Witch"
-              checked={botClass.Witch}
-              onChange={handleCheckboxChange}
-            />
+            <div className="label-checkbox">
+              <label htmlFor="Support">Support</label>
+              <input
+                type="checkbox"
+                name="Support"
+                checked={botClass.Support}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+
+            <div className="label-checkbox">
+              <label htmlFor="Medic">Medic</label>
+              <input
+                type="checkbox"
+                name="Medic"
+                checked={botClass.Medic}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+
+            <div className="label-checkbox">
+              <label htmlFor="Assault">Assault</label>
+              <input
+                type="checkbox"
+                name="Assault"
+                checked={botClass.Assault}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+
+            <div className="label-checkbox">
+              <label htmlFor="Captain">Captain</label>
+              <input
+                type="checkbox"
+                name="Captain"
+                checked={botClass.Captain}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+
+            <div className="label-checkbox">
+              <label htmlFor="Defender">Defender</label>
+              <input
+                type="checkbox"
+                name="Defender"
+                checked={botClass.Defender}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+
+            <div className="label-checkbox">
+              <label htmlFor="Witch">Witch</label>
+              <input
+                type="checkbox"
+                name="Witch"
+                checked={botClass.Witch}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+            <button
+              type="submit"
+              id="btn"
+              disabled={isDisabled}
+              ref={buttonRef}
+            >
+              Filter
+            </button>
           </div>
         )}
       </div>
-      <button type="submit" id="btn" disabled={isDisabled} ref={buttonRef}>
-        Submit
-      </button>
     </form>
   );
 }

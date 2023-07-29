@@ -1,12 +1,42 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 function Bot({ bot }) {
   //   console.log(bot);
+  const [classICon, setClassICon] = useState(null);
+
+  // function iconSetter(className) {
+  //
+  //   }
+  // }
+  /**
+   * <i class="fa-solid fa-hat-witch"></i>
+   * <i class="fa-solid fa-person-running"></i>
+   */
+
+  useEffect(() => {
+    if (bot.bot_class === "Support") {
+      setClassICon(<i className="fa-solid fa-person-running"></i>);
+    } else if (bot.bot_class === "Medic") {
+      setClassICon(<i className="fa-solid fa-truck-medical"></i>);
+    } else if (bot.bot_class === "Assault") {
+      setClassICon(<i className="fa-solid fa-jet-fighter"></i>);
+    } else if (bot.bot_class === "Defender") {
+      setClassICon(<i className="fa-solid fa-shield-halved"></i>);
+    } else if (bot.bot_class === "Witch") {
+      setClassICon(<i class="fa-solid fa-broom"></i>);
+    } else if (bot.bot_class === "Captain") {
+      setClassICon(<i class="fa-solid fa-person-military-pointing"></i>);
+    }
+  }, [bot]);
   return (
     <div className="bot card">
       <img src={bot.avatar_url} className="card-img-top" alt="..." />
       <div className="card-body">
-        <h5 className="card-title">{bot.name}</h5>
+        <div className="title-icon">
+          <h5 className="card-title">{bot.name}</h5>
+          <span>{classICon}</span>
+        </div>
         <div className="catchphrase">
           <p className="card-text">{bot.catchphrase}</p>
         </div>

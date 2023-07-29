@@ -1,37 +1,77 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
 import { dataContext } from "../data/DataContextProvider";
 import { useNavigate } from "react-router-dom";
 
 export default function BotSpecs({ updateEnlistedBots }) {
   const [isClicked, setIsClicked] = useState(false);
-  const { botData, setBotData, isLoading } = useContext(dataContext);
+  const [classICon, setClassICon] = useState(null);
+  const { botData } = useContext(dataContext);
   const { id } = useParams();
   const navigate = useNavigate();
+
   const botSpec = botData.find((thisBot) => thisBot.id === parseInt(id));
-  // console.log(botSpec);
+
+  useEffect(() => {
+    if (botData.length > 0) {
+      if (botSpec) {
+        // Logic to set the classICon based on the bot_class value
+        switch (botSpec.bot_class) {
+          case "Support":
+            setClassICon(<i className="fa-solid fa-person-running"></i>);
+            break;
+          case "Medic":
+            setClassICon(<i className="fa-solid fa-truck-medical"></i>);
+            break;
+          case "Assault":
+            setClassICon(<i className="fa-solid fa-jet-fighter"></i>);
+            break;
+          case "Defender":
+            setClassICon(<i className="fa-solid fa-shield-halved"></i>);
+            break;
+          case "Witch":
+            setClassICon(<i className="fa-solid fa-broom"></i>);
+            break;
+          case "Captain":
+            setClassICon(
+              <i className="fa-solid fa-person-military-pointing"></i>
+            );
+            break;
+          default:
+            setClassICon(null);
+        }
+      }
+    }
+  }, [botData]);
+
   if (!botSpec) {
     return <h1>Loading...</h1>;
   }
 
   function handleEnlist(bot) {
-    // console.log(bot);
     updateEnlistedBots(bot);
     navigate(-1);
   }
+
   return (
     <div className="bot-specs">
-      {}
       <h1>BOT-SPECS</h1>
       <div className="bot-spec-content">
         <img src={botSpec.avatar_url} className="card-img-top" alt="..." />
         <div className="bot card">
           <div className="card-body">
             <h5 className="card-title">{botSpec.name}</h5>
-            <div className="catchphrase">
-              <h6>CatchPharase:</h6>
-              <p className="card-text">{botSpec.catchphrase}</p>
+            <div className="class-catch-pharase">
+              <div className="catch-phrase">
+                <h6>CatchPharase:</h6>
+                <p className="card-text">{botSpec.catchphrase}</p>
+              </div>
+              <div className="bot-class">
+                <span>
+                  Class: <span>{botSpec.bot_class}</span>
+                </span>
+                <span className="bot-icon">{classICon}</span>
+              </div>
             </div>
           </div>
           <div className="icons">
@@ -48,8 +88,11 @@ export default function BotSpecs({ updateEnlistedBots }) {
               {botSpec.armor}
             </span>
           </div>
-          <button onClick={() => handleEnlist(botSpec)}>Enlist</button>
-          <button onClick={() => navigate(-1)}>Back to Colleciton</button>
+
+          <div className="btn">
+            <button onClick={() => handleEnlist(botSpec)}>Enlist</button>
+            <button onClick={() => navigate(-1)}>Back to Collection</button>
+          </div>
         </div>
       </div>
     </div>

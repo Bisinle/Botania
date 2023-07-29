@@ -49,35 +49,17 @@ function BotList({ sortValueState }) {
           thisBot.bot_class === Captain ||
           thisBot.bot_class === Defender
         );
-      } else if (Support && Medic && Assault && Defender && Captain) {
+      } else if (Support || Medic || Assault || Defender || Captain || Witch) {
         return (
           thisBot.bot_class === Support ||
           thisBot.bot_class === Medic ||
           thisBot.bot_class === Assault ||
+          thisBot.bot_class === Witch ||
           thisBot.bot_class === Captain ||
           thisBot.bot_class === Defender
         );
-      } else if (Support && Medic && Assault && Captain) {
-        return (
-          thisBot.bot_class === Support ||
-          thisBot.bot_class === Medic ||
-          thisBot.bot_class === Witch ||
-          thisBot.bot_class === Captain
-        );
-      } else if (Support && Medic && Assault) {
-        return (
-          thisBot.bot_class === Support ||
-          thisBot.bot_class === Medic ||
-          thisBot.bot_class === Assault
-        );
-      } else if (Support && Medic) {
-        return thisBot.bot_class === Support || thisBot.bot_class === Medic;
-      } else if (Support && Medic && Assault) {
-        return (
-          thisBot.bot_class === Support ||
-          thisBot.bot_class === Medic ||
-          thisBot.bot_class === Assault
-        );
+      } else if (Support && Witch) {
+        return thisBot.bot_class === Support || thisBot.bot_class === Witch;
       } else if (Support) {
         return thisBot.bot_class === Support;
       } else if (Medic) {
@@ -105,13 +87,19 @@ function BotList({ sortValueState }) {
   function isValueEmpty(value) {
     return value === "";
   }
-  console.log(filteredBotSatate);
-  console.log(filterObjectFromForm);
+  // console.log(filteredBotSatate);
+  // console.log(filterObjectFromForm);
   // console.log(Object.values(filterObjectFromForm));
+  //map Through the filtered data
+  const filteredBotSatateMapping = filteredBotSatate.map((bot) => (
+    <Link key={bot.id} to={`botSpecs/${bot.id}`}>
+      <Bot bot={bot} />
+    </Link>
+  ));
   return (
     <div className="bot">
       {isLoading ? <h1>Loading...</h1> : <h1>BOT COLLECTION</h1>}
-      <div className="sort-bar">
+      <div className="sort-Filter">
         <FilterBar onSubmitHandle={handleFilter} />
         <SortBar onSortChange={handleSortChange} />
       </div>
@@ -125,11 +113,7 @@ function BotList({ sortValueState }) {
                 <Bot bot={bot} />
               </Link>
             ))
-          : filteredBotSatate.map((bot) => (
-              <Link key={bot.id} to={`botSpecs/${bot.id}`}>
-                <Bot bot={bot} />
-              </Link>
-            ))}
+          : filteredBotSatateMapping}
       </div>
     </div>
   );

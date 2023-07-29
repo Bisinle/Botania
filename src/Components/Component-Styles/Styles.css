@@ -1,5 +1,5 @@
 :root {
-  --mainColor: #61dafb;
+  --mainColor: #2ac3ed;
   --secondary: #50596d;
 }
 /***********************************************************/
@@ -26,7 +26,14 @@
   margin: 20px auto;
   color: var(--mainColor);
 }
-
+.title-icon {
+  display: flex;
+  gap: 16px;
+}
+.title-icon span i {
+  color: rgb(249, 150, 11);
+  font-size: 25px;
+}
 .bot a {
   text-decoration: none;
 }
@@ -96,15 +103,7 @@
 .bot-specs {
   text-align: center;
 }
-.bot-specs .bot.card {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  color: black;
-  justify-content: center;
-  text-align: center;
-}
+
 .bot-specs img {
   margin-top: 50px;
   width: 250px;
@@ -128,9 +127,11 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border: 2px solid white;
+  border: none;
+  box-shadow: 0px 0px 10px 3px #08080a;
   padding: 0;
   position: relative;
+  border-radius: 20px;
 }
 
 .bot-specs .icons {
@@ -142,7 +143,7 @@
   height: 5ch;
   position: absolute;
   width: 100%;
-  bottom: 90px;
+  bottom: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -153,6 +154,48 @@
   font-size: 16px;
   margin: 0 5px;
 }
+
+.bot-specs .btn {
+  display: flex;
+  flex-direction: column;
+}
+.bot-specs button {
+  background-color: var(--mainColor);
+}
+
+.bot-specs .card-body .class-catch-pharase {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.bot-specs .card-body .class-catch-pharase .catch-phrase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.bot-specs .card-body .class-catch-pharase .catch-phrase h6 {
+  text-decoration: underline;
+  color: #c1c3c8;
+  font-size: 20px;
+}
+.bot-specs .card-body .class-catch-pharase .catch-phrase p {
+  color: #c1c3c8;
+}
+
+.bot-specs .card-body .class-catch-pharase .bot-class {
+  display: flex;
+  gap: 20px;
+}
+.bot-specs .card-body .class-catch-pharase .bot-class {
+  color: #c1c3c8;
+  font-size: 18px;
+}
+.bot-specs .card-body .class-catch-pharase .bot-icon {
+  color: var(--mainColor);
+}
+
 /******************************************************/
 .bot-army {
   width: 100%;
@@ -194,19 +237,51 @@
 
 /******************************************************/
 #sort-bar {
-  display: block;
   width: 200px;
-  margin: 20px auto;
+  height: 30px;
   color: var(--mainColor);
   background-color: var(--secondary);
 }
 
 /*******************************************************/
+form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+form button {
+  height: 50px;
+  border: 2px solid #82868f;
+  border-radius: 20px;
+  background-color: transparent;
+  width: 100px;
+  padding: 0;
+  font-size: 20px;
+  color: white;
+}
 .checkboxes {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+  background-color: #383f4f;
+  width: 250px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 10px;
 }
-.checkboxes label {
+.checkboxes .label-checkbox {
+  width: 100px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.checkboxes input,
+label {
   color: var(--mainColor);
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
 }
