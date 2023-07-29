@@ -37,7 +37,7 @@ function BotList({ sortValueState }) {
 
   function handleFilter(filterClasses) {
     const { Support, Medic, Assault, Defender, Captain, Witch } = filterClasses;
-    console.log(Support, Medic, Assault, Defender, Captain, Witch);
+    // console.log(Support, Medic, Assault, Defender, Captain, Witch);
     // console.log(filteredData);
     const filteredData = sortedBotData.filter((thisBot) => {
       if (Support && Medic && Assault && Defender && Captain && Witch) {
@@ -74,12 +74,12 @@ function BotList({ sortValueState }) {
         return thisBot.bot_class === Captain;
       }
     });
-    console.log(filteredData);
+    // console.log(filteredData);
     setFilteredBotSatate(filteredData);
     setFilterObjectFromForm(filterClasses);
-    console.log(filterObjectFromForm);
+    // console.log(filterObjectFromForm);
   }
-  console.log(filterObjectFromForm);
+  // console.log(filterObjectFromForm);
 
   function isNotValueEmpty(value) {
     return !value === "";
@@ -120,83 +120,3 @@ function BotList({ sortValueState }) {
 }
 
 export default BotList;
-
-// {sortValueState === " Sort By"
-// ? botItem
-// : botItem.sort((a, b) => {
-//     if (sortValueState === "Health") {
-//       return b.health - a.health;
-//     }
-//   })}
-
-// const filteredData = sortedBotData.filter((thisBot) => {
-//   if (
-//     filterClasses.Support &&
-//     filterClasses.Medic &&
-//     filterClasses.Captain &&
-//     filterClasses.Defender &&
-//     filterClasses.Witch &&
-//     filterClasses.Assault
-//   ) {
-//     return (
-//       thisBot.bot_class === "Support" ||
-//       thisBot.bot_class === "Medic" ||
-//       thisBot.bot_class === "Assault" ||
-//       thisBot.bot_class === "Defender" ||
-//       thisBot.bot_class === "Captain" ||
-//       thisBot.bot_class === "Witch"
-//     );
-//   } else if (
-//     filterClasses.Support &&
-//     filterClasses.Medic &&
-//     filterClasses.Captain &&
-//     filterClasses.Defender &&
-//     filterClasses.Witch
-//   ) {
-//     return (
-//       thisBot.bot_class === "Support" ||
-//       thisBot.bot_class === "Medic" ||
-//       thisBot.bot_class === "Defender" ||
-//       thisBot.bot_class === "Captain" ||
-//       thisBot.bot_class === "Witch"
-//     );
-//   } else if (
-//     filterClasses.Support &&
-//     filterClasses.Medic &&
-//     filterClasses.Captain &&
-//     filterClasses.Defender
-//   ) {
-//     return (
-//       thisBot.bot_class === "Support" ||
-//       thisBot.bot_class === "Medic" ||
-//       thisBot.bot_class === "Defender" ||
-//       thisBot.bot_class === "Captain"
-//     );
-//   } else if (
-//     filterClasses.Support &&
-//     filterClasses.Medic &&
-//     filterClasses.Captain
-//   ) {
-//     return (
-//       thisBot.bot_class === "Support" ||
-//       thisBot.bot_class === "Medic" ||
-//       thisBot.bot_class === "Captain"
-//     );
-//   } else if (filterClasses.Support && filterClasses.Medic) {
-//     return thisBot.bot_class === "Support" || thisBot.bot_class === "Medic";
-//   } else if (filterClasses.Support) {
-//     return thisBot.bot_class === "Support";
-//   } else if (filterClasses.Medic) {
-//     return thisBot.bot_class === "Medic";
-//   } else if (filterClasses.Defender) {
-//     return thisBot.bot_class === "Defender";
-//   } else if (filterClasses.Witch) {
-//     return thisBot.bot_class === "Witch";
-//   } else if (filterClasses.Assault) {
-//     return thisBot.bot_class === "Assault";
-//   } else if (filterClasses.Captain) {
-//     return thisBot.bot_class === "Captain";
-//   }
-//   // If neither Support nor Medic is selected, include all data items
-//   return true;
-// });

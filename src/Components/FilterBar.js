@@ -31,8 +31,8 @@ function FilterBar({ onSubmitHandle }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Collect and process the form data here
-    console.log("Selected Options:", botClass);
-    console.log(botClass.Support);
+    // console.log("Selected Options:", botClass);
+    // console.log(botClass.Support);
     onSubmitHandle(botClass);
   };
 
