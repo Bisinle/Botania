@@ -75,13 +75,13 @@ export default function BotSpecs({ updateEnlistedBots }) {
 
             <h5 className="card-title">{botSpec.name}</h5>
             <div className="class-catch-pharase">
-              <div className="catch-phrase">
+              <div className=" bot-spec catch-phrase">
                 <h6>CatchPharase:</h6>
                 <p className="card-text">{botSpec.catchphrase}</p>
               </div>
               <div className="bot-class">
                 <span>
-                  Class: <span>{botSpec.bot_class}</span>
+                  Class: <span id="class">{botSpec.bot_class}</span>
                 </span>
                 <span className="bot-icon">{classICon}</span>
               </div>

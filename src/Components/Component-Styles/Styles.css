@@ -26,10 +26,7 @@
   margin: 20px auto;
   color: var(--mainColor);
 }
-.delete-card {
-  color: yellow;
-  font-size: 30px;
-}
+
 .title-icon {
   display: flex;
   gap: 16px;
@@ -141,16 +138,14 @@
 .bot-specs .icons {
   display: flex;
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
   border: 2px solid var(--secondary);
   color: white;
   height: 5ch;
   position: absolute;
-  width: 100%;
-  bottom: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  width: 80%;
+  bottom: 70px;
+  left: 30px;
   align-items: center;
 }
 .bot-specs .icons span i {
@@ -196,10 +191,25 @@
   color: #c1c3c8;
   font-size: 18px;
 }
+
 .bot-specs .card-body .class-catch-pharase .bot-icon {
   color: var(--mainColor);
+  font-size: 25px;
 }
-
+.bot-specs .catch-phrase p {
+  display: flex;
+  word-break: break-all;
+  justify-self: start;
+  flex-wrap: wrap;
+}
+.delete-card {
+  color: green;
+  font-size: 30px;
+  position: absolute;
+  right: 10px;
+  color: var(--mainColor);
+  cursor: pointer;
+}
 /******************************************************/
 .bot-army {
   width: 100%;
