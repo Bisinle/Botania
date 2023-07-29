@@ -8,7 +8,8 @@ import SortBar from "./SortBar";
 import FilterBar from "./FilterBar";
 function BotList({ sortValueState }) {
   const { botData, setBotData, isLoading } = useContext(dataContext);
-  console.log(sortValueState);
+  const [filteredBotSatate, setFilteredBotSatate] = useState([]);
+  // console.log(sortValueState);
   const [sortValue, setSortValue] = useState();
 
   const botItem = botData.map((bot) => (
@@ -33,11 +34,88 @@ function BotList({ sortValueState }) {
     return 0;
   });
 
+  function handleFilter(filterClasses) {
+    console.log(filterClasses);
+    const filteredData = sortedBotData.filter((thisBot) => {
+      if (
+        filterClasses.Support &&
+        filterClasses.Medic &&
+        filterClasses.Captain &&
+        filterClasses.Defender &&
+        filterClasses.Witch &&
+        filterClasses.Assault
+      ) {
+        return (
+          thisBot.bot_class === "Support" ||
+          thisBot.bot_class === "Medic" ||
+          thisBot.bot_class === "Assault" ||
+          thisBot.bot_class === "Defender" ||
+          thisBot.bot_class === "Captain" ||
+          thisBot.bot_class === "Witch"
+        );
+      } else if (
+        filterClasses.Support &&
+        filterClasses.Medic &&
+        filterClasses.Captain &&
+        filterClasses.Defender &&
+        filterClasses.Witch
+      ) {
+        return (
+          thisBot.bot_class === "Support" ||
+          thisBot.bot_class === "Medic" ||
+          thisBot.bot_class === "Defender" ||
+          thisBot.bot_class === "Captain" ||
+          thisBot.bot_class === "Witch"
+        );
+      } else if (
+        filterClasses.Support &&
+        filterClasses.Medic &&
+        filterClasses.Captain &&
+        filterClasses.Defender
+      ) {
+        return (
+          thisBot.bot_class === "Support" ||
+          thisBot.bot_class === "Medic" ||
+          thisBot.bot_class === "Defender" ||
+          thisBot.bot_class === "Captain"
+        );
+      } else if (
+        filterClasses.Support &&
+        filterClasses.Medic &&
+        filterClasses.Captain
+      ) {
+        return (
+          thisBot.bot_class === "Support" ||
+          thisBot.bot_class === "Medic" ||
+          thisBot.bot_class === "Captain"
+        );
+      } else if (filterClasses.Support && filterClasses.Medic) {
+        return thisBot.bot_class === "Support" || thisBot.bot_class === "Medic";
+      } else if (filterClasses.Support) {
+        return thisBot.bot_class === "Support";
+      } else if (filterClasses.Medic) {
+        return thisBot.bot_class === "Medic";
+      } else if (filterClasses.Defender) {
+        return thisBot.bot_class === "Defender";
+      } else if (filterClasses.Witch) {
+        return thisBot.bot_class === "Witch";
+      } else if (filterClasses.Assault) {
+        return thisBot.bot_class === "Assault";
+      } else if (filterClasses.Captain) {
+        return thisBot.bot_class === "Captain";
+      }
+      // If neither Support nor Medic is selected, include all data items
+      return true;
+    });
+    console.log(filteredData);
+    setFilteredBotSatate(filteredData);
+  }
+
   return (
     <div className="bot">
       {isLoading ? <h1>Loading...</h1> : <h1>BOT COLLECTION</h1>}
       <div className="sort-bar">
-        <FilterBar />
+        <FilterBar onSubmitHandle={handleFilter} />
         <SortBar onSortChange={handleSortChange} />
       </div>
       <div className="collection">

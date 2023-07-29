@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
-function FilterBar() {
+function FilterBar({ onSubmitHandle }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [options, setOptions] = useState({
-    option1: false,
-    option2: false,
-    option3: false,
+  const [botClass, setBotClass] = useState({
+    Support: false,
+    Medic: false,
+    Assault: false,
+    Defender: false,
+    Captain: false,
+    Witch: false,
   });
 
   const handleDropdownToggle = () => {
@@ -13,16 +16,19 @@ function FilterBar() {
   };
 
   const handleCheckboxChange = (e) => {
-    setOptions({
-      ...options,
-      [e.target.value]: e.target.checked,
+    const { name, checked } = e.target;
+    setBotClass({
+      ...botClass,
+      [name]: checked,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Collect and process the form data here
-    console.log("Selected Options:", options);
+    console.log("Selected Options:", botClass);
+    console.log(botClass.Support);
+    onSubmitHandle(botClass);
   };
 
   return (
@@ -32,28 +38,49 @@ function FilterBar() {
           Filter By
         </label>
         {isDropdownOpen && (
-          <div>
+          <div className="checkboxes">
+            <label htmlFor="Support">Support</label>
             <input
               type="checkbox"
-              value="option1"
-              checked={options.option1}
+              name="Support"
+              checked={botClass.Support}
               onChange={handleCheckboxChange}
             />
-            <label>Option 1</label>
+            <label htmlFor="Medic">Medic</label>
             <input
               type="checkbox"
-              value="option2"
-              checked={options.option2}
+              name="Medic"
+              checked={botClass.Medic}
               onChange={handleCheckboxChange}
             />
-            <label>Option 2</label>
+            <label htmlFor="Assault">Assault</label>
             <input
               type="checkbox"
-              value="option3"
-              checked={options.option3}
+              name="Assault"
+              checked={botClass.Assault}
               onChange={handleCheckboxChange}
             />
-            <label>Option 3</label>
+            <label htmlFor="Captain">Captain</label>
+            <input
+              type="checkbox"
+              name="Captain"
+              checked={botClass.Captain}
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="Defender">Defender</label>
+            <input
+              type="checkbox"
+              name="Defender"
+              checked={botClass.Defender}
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="Witch">Witch</label>
+            <input
+              type="checkbox"
+              name="Witch"
+              checked={botClass.Witch}
+              onChange={handleCheckboxChange}
+            />
           </div>
         )}
       </div>
@@ -63,13 +90,3 @@ function FilterBar() {
 }
 
 export default FilterBar;
-
-//   <select name="" id="">
-//         <option value="All">filter By</option>
-//         <option value="Supporter">Supporter</option>
-//         <option value="Medic">Medic</option>
-//         <option value="Assoult">Assoult</option>
-//         <option value="Defender">Defender</option>
-//         <option value="Captain">Captain</option>
-//         <option value="Witch">Witch</option>
-//       </select>
