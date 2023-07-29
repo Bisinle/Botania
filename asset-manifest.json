@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Botania/static/css/main.a1e41cfc.css",
+    "main.js": "/Botania/static/js/main.c8b99a5d.js",
+    "index.html": "/Botania/index.html",
+    "main.a1e41cfc.css.map": "/Botania/static/css/main.a1e41cfc.css.map",
+    "main.c8b99a5d.js.map": "/Botania/static/js/main.c8b99a5d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a1e41cfc.css",
+    "static/js/main.c8b99a5d.js"
+  ]
+}
