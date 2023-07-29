@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function BotSpecs({ updateEnlistedBots }) {
   const [isClicked, setIsClicked] = useState(false);
   const [classICon, setClassICon] = useState(null);
-  const { botData } = useContext(dataContext);
+  const { botData, deleteBotCard } = useContext(dataContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -53,6 +53,13 @@ export default function BotSpecs({ updateEnlistedBots }) {
     navigate(-1);
   }
 
+  function cardDeleteHandle(e) {
+    const { id } = e.target;
+    // console.log();
+    deleteBotCard(parseInt(id));
+    navigate(-1);
+  }
+
   return (
     <div className="bot-specs">
       <h1>BOT-SPECS</h1>
@@ -60,6 +67,12 @@ export default function BotSpecs({ updateEnlistedBots }) {
         <img src={botSpec.avatar_url} className="card-img-top" alt="..." />
         <div className="bot card">
           <div className="card-body">
+            <i
+              id={botSpec.id}
+              onClick={cardDeleteHandle}
+              className="fa-solid fa-trash-can delete-card"
+            ></i>
+
             <h5 className="card-title">{botSpec.name}</h5>
             <div className="class-catch-pharase">
               <div className="catch-phrase">

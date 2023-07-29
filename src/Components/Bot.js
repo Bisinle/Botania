@@ -20,6 +20,7 @@ function Bot({ bot }) {
       setClassICon(<i className="fa-solid fa-person-military-pointing"></i>);
     }
   }, [bot]);
+
   return (
     <div className="bot card">
       <img src={bot.avatar_url} className="card-img-top" alt="..." />

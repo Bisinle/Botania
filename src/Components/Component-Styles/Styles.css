@@ -26,6 +26,10 @@
   margin: 20px auto;
   color: var(--mainColor);
 }
+.delete-card {
+  color: yellow;
+  font-size: 30px;
+}
 .title-icon {
   display: flex;
   gap: 16px;

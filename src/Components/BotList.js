@@ -6,7 +6,8 @@ import { dataContext } from "../data/DataContextProvider";
 import { Link } from "react-router-dom";
 import SortBar from "./SortBar";
 import FilterBar from "./FilterBar";
-function BotList({ sortValueState }) {
+
+function BotList({ sortValueState, onCardClikToApp }) {
   const { botData, setBotData, isLoading } = useContext(dataContext);
   const [filteredBotSatate, setFilteredBotSatate] = useState([]);
   const [filterObjectFromForm, setFilterObjectFromForm] = useState({});
@@ -87,12 +88,19 @@ function BotList({ sortValueState }) {
   function isValueEmpty(value) {
     return value === "";
   }
-  // console.log(filteredBotSatate);
-  // console.log(filterObjectFromForm);
-  // console.log(Object.values(filterObjectFromForm));
+
+  //******we wanted to place the delete icon on the link----IT WORKS */
+  // function passCardObjectToAPP(bot) {
+  //   console.log(bot);
+  // }
+
   //map Through the filtered data
   const filteredBotSatateMapping = filteredBotSatate.map((bot) => (
-    <Link key={bot.id} to={`botSpecs/${bot.id}`}>
+    <Link
+      // onClick={() => console.log(bot)}
+      key={bot.id}
+      to={`botSpecs/${bot.id}`}
+    >
       <Bot bot={bot} />
     </Link>
   ));
