@@ -225,6 +225,7 @@
   padding: 0;
   position: relative;
   align-items: center;
+  color: #9da2ab;
 }
 
 .bot-army .card img {
@@ -238,7 +239,21 @@
   margin: 20px auto;
   color: var(--mainColor);
 }
+.catch-phrase h6 {
+  text-decoration: underline;
+  color: #c3c5ca;
+  display: flex;
+}
 
+.bot-class span {
+  display: flex;
+  font-size: 18px;
+  color: #c3c5ca;
+}
+.bot-class span #class {
+  color: var(--mainColor);
+  margin-left: 10px;
+}
 #remove-from-army {
   color: var(--mainColor);
   font-weight: bolder;

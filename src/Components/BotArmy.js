@@ -61,7 +61,7 @@ function BotArmy({ bot }) {
                 </div>
                 <div className="bot-class">
                   <span>
-                    Class: <span>{bot.bot_class}</span>
+                    Class: <span id="class">{bot.bot_class}</span>
                   </span>
                   <span className="bot-icon">{}</span>
                 </div>
