@@ -35,3 +35,22 @@ The `FilterBar` component enhances the bot collection experience by allowing use
 ### 8. SortBar Component
 
 The SortBar component adds another layer of user-friendliness to the bot collection. Users can sort the bots based on their `health`, `damage`, or `armor` attributes by selecting the desired sorting option from the dropdown list. This functionality `enables` users to `find` the most `powerful` or most resilient bots with ease.
+
+## Getting Started
+
+To run the React App on your local machine, follow these steps:
+
+1. Clone the repository: git clone https://github.com/Bisinle/Botania
+2. Navigate to the project directory:` cd botania`
+3. Install dependencies: `npm install`
+4. Navigate to `src/data` to start the server : `json-server --watch ./src/data/botBase.json`
+5. Start the development server: `npm start`
+6. Open your browser and go to `http://localhost:3000 `to view the app.
+
+# Contact
+
+For any further questions or inquiries, please contact abdiwadud.mohamedd.@gmail.com.
+
+# License
+
+This code is developed by `Abdiwadud Mohamed` and is under the `Bisinle` License.
