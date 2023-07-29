@@ -81,7 +81,11 @@ function BotArmy({ bot }) {
                 {bot.armor}
               </span>
             </div>
-            <i onClick={() => handleRemove(bot)} className="fa-solid fa-x"></i>
+            <i
+              onClick={() => handleRemove(bot)}
+              id="remove-from-army"
+              className="fa-solid fa-x"
+            ></i>
           </div>
         );
       })}
