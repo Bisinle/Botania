@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+## B O T A N I A
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains several React components that are part of a larger project related to an exciting bot collection. The components interact with each other to provide users with a captivating bot collection experience. Below, we provide a brief overview of each component and its purpose.
 
-## Available Scripts
+# <ins>Components Overview</ins>
 
-In the project directory, you can run:
+### 1.DataContextProvider Component
 
-### `npm start`
+The DataContextProvider,as the name suggest, provides context and manages the application's bot data and provides it to other components using React's context API. It fetches the bot data from a local API at http://localhost:4000/bots and stores it in the botData state. It also handles deleting bot cards from the local database when necessary. The data fetched and managed by this provider is shared with other components in the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. App Component
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The `App` component serves as the main container for other components and holds the overall layout and structure of the app. This component is primarily responsible for rendering the BotList component, which displays the collection of bot cards. It utilizes `FilterBar` and `SortBar` components to allow users to filter and sort the bot collection,It also handles the main routing of the Application, providing users with smooth navigation and an engaging experience.
 
-### `npm test`
+### 3. BotList Component
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The `BotList` component is where the magic happens! It `displays` the entire bot collection, showcasing each bot as a card. Users can interact with each bot card, clicking on them to navigate to the BotSpecs component, which provides detailed information about a specific bot. The BotList component also allows users to `filter` the collection based on `bot classes` using the `FilterBar` component and `sort` the bots by `health`, `damage`, or `armor` using the `SortBar` component. This enhances the user experience by providing them with better organization and access to the bots they love.
 
-### `npm run build`
+### 4. Bot Component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The `Bot component` is responsible for rendering a `single` bot card. It takes in bot data as props and displays captivating information about the bot, including its name, catchphrase, class, and various attributes such as health, damage, and armor. The class` icon is dynamically generated` based on the bot's class, giving each bot a unique and visually appealing representation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 5. BotSpecs Component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The` BotSpecs component` provides in-depth details about a specific bot selected from the bot collection. When a user clicks on a bot card in the BotList component, they are `redirected` to the BotSpecs page. Here, they can see the bot's avatar, name, catchphrase, class, and attributes. The `class icon is dynamically generated just like in the Bot component`. The user can also enlist the bot into their army, navigate back to the main collection page or delete the specific bot from their collection, whcih removes it from the back-end as well.
 
-### `npm run eject`
+### 6. BotArmy Component
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The BotArmy component is where the real fun begins! It enables users to create their `army of bots`. When users enlist a bot from the BotSpecs page, it gets added to their enlisted bots. The enlisted bots are displayed in the BotArmy component, and users can `remove bots` they no longer want in their army. This interactive and captivating feature allows users to create their dream team of bots for an epic battle!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 7. FilterBar Component
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The `FilterBar` component enhances the bot collection experience by allowing users to `filter bots based on their classes`. Users can `select one or more bot classes `from the dropdown list, and the bot collection will be filtered accordingly. The filtered bots are `displayed in real-time`, providing users with `immediate feedback `and a seamless filtering experience
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 8. SortBar Component
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The SortBar component adds another layer of user-friendliness to the bot collection. Users can sort the bots based on their `health`, `damage`, or `armor` attributes by selecting the desired sorting option from the dropdown list. This functionality `enables` users to `find` the most `powerful` or most resilient bots with ease.
