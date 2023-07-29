@@ -200,3 +200,13 @@
   color: var(--mainColor);
   background-color: var(--secondary);
 }
+
+/*******************************************************/
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.checkboxes label {
+  color: var(--mainColor);
+}

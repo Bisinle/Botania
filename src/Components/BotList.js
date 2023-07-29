@@ -9,6 +9,7 @@ import FilterBar from "./FilterBar";
 function BotList({ sortValueState }) {
   const { botData, setBotData, isLoading } = useContext(dataContext);
   const [filteredBotSatate, setFilteredBotSatate] = useState([]);
+  const [filterObjectFromForm, setFilterObjectFromForm] = useState({});
   // console.log(sortValueState);
   const [sortValue, setSortValue] = useState();
 
@@ -35,82 +36,78 @@ function BotList({ sortValueState }) {
   });
 
   function handleFilter(filterClasses) {
-    console.log(filterClasses);
+    const { Support, Medic, Assault, Defender, Captain, Witch } = filterClasses;
+    console.log(Support, Medic, Assault, Defender, Captain, Witch);
+    // console.log(filteredData);
     const filteredData = sortedBotData.filter((thisBot) => {
-      if (
-        filterClasses.Support &&
-        filterClasses.Medic &&
-        filterClasses.Captain &&
-        filterClasses.Defender &&
-        filterClasses.Witch &&
-        filterClasses.Assault
-      ) {
+      if (Support && Medic && Assault && Defender && Captain && Witch) {
         return (
-          thisBot.bot_class === "Support" ||
-          thisBot.bot_class === "Medic" ||
-          thisBot.bot_class === "Assault" ||
-          thisBot.bot_class === "Defender" ||
-          thisBot.bot_class === "Captain" ||
-          thisBot.bot_class === "Witch"
+          thisBot.bot_class === Support ||
+          thisBot.bot_class === Medic ||
+          thisBot.bot_class === Assault ||
+          thisBot.bot_class === Witch ||
+          thisBot.bot_class === Captain ||
+          thisBot.bot_class === Defender
         );
-      } else if (
-        filterClasses.Support &&
-        filterClasses.Medic &&
-        filterClasses.Captain &&
-        filterClasses.Defender &&
-        filterClasses.Witch
-      ) {
+      } else if (Support && Medic && Assault && Defender && Captain) {
         return (
-          thisBot.bot_class === "Support" ||
-          thisBot.bot_class === "Medic" ||
-          thisBot.bot_class === "Defender" ||
-          thisBot.bot_class === "Captain" ||
-          thisBot.bot_class === "Witch"
+          thisBot.bot_class === Support ||
+          thisBot.bot_class === Medic ||
+          thisBot.bot_class === Assault ||
+          thisBot.bot_class === Captain ||
+          thisBot.bot_class === Defender
         );
-      } else if (
-        filterClasses.Support &&
-        filterClasses.Medic &&
-        filterClasses.Captain &&
-        filterClasses.Defender
-      ) {
+      } else if (Support && Medic && Assault && Captain) {
         return (
-          thisBot.bot_class === "Support" ||
-          thisBot.bot_class === "Medic" ||
-          thisBot.bot_class === "Defender" ||
-          thisBot.bot_class === "Captain"
+          thisBot.bot_class === Support ||
+          thisBot.bot_class === Medic ||
+          thisBot.bot_class === Witch ||
+          thisBot.bot_class === Captain
         );
-      } else if (
-        filterClasses.Support &&
-        filterClasses.Medic &&
-        filterClasses.Captain
-      ) {
+      } else if (Support && Medic && Assault) {
         return (
-          thisBot.bot_class === "Support" ||
-          thisBot.bot_class === "Medic" ||
-          thisBot.bot_class === "Captain"
+          thisBot.bot_class === Support ||
+          thisBot.bot_class === Medic ||
+          thisBot.bot_class === Assault
         );
-      } else if (filterClasses.Support && filterClasses.Medic) {
-        return thisBot.bot_class === "Support" || thisBot.bot_class === "Medic";
-      } else if (filterClasses.Support) {
-        return thisBot.bot_class === "Support";
-      } else if (filterClasses.Medic) {
-        return thisBot.bot_class === "Medic";
-      } else if (filterClasses.Defender) {
-        return thisBot.bot_class === "Defender";
-      } else if (filterClasses.Witch) {
-        return thisBot.bot_class === "Witch";
-      } else if (filterClasses.Assault) {
-        return thisBot.bot_class === "Assault";
-      } else if (filterClasses.Captain) {
-        return thisBot.bot_class === "Captain";
+      } else if (Support && Medic) {
+        return thisBot.bot_class === Support || thisBot.bot_class === Medic;
+      } else if (Support && Medic && Assault) {
+        return (
+          thisBot.bot_class === Support ||
+          thisBot.bot_class === Medic ||
+          thisBot.bot_class === Assault
+        );
+      } else if (Support) {
+        return thisBot.bot_class === Support;
+      } else if (Medic) {
+        return thisBot.bot_class === Medic;
+      } else if (Defender) {
+        return thisBot.bot_class === Defender;
+      } else if (Witch) {
+        return thisBot.bot_class === Witch;
+      } else if (Assault) {
+        return thisBot.bot_class === Assault;
+      } else if (Captain) {
+        return thisBot.bot_class === Captain;
       }
-      // If neither Support nor Medic is selected, include all data items
-      return true;
     });
     console.log(filteredData);
     setFilteredBotSatate(filteredData);
+    setFilterObjectFromForm(filterClasses);
+    console.log(filterObjectFromForm);
   }
+  console.log(filterObjectFromForm);
 
+  function isNotValueEmpty(value) {
+    return !value === "";
+  }
+  function isValueEmpty(value) {
+    return value === "";
+  }
+  console.log(filteredBotSatate);
+  console.log(filterObjectFromForm);
+  // console.log(Object.values(filterObjectFromForm));
   return (
     <div className="bot">
       {isLoading ? <h1>Loading...</h1> : <h1>BOT COLLECTION</h1>}
@@ -119,11 +116,20 @@ function BotList({ sortValueState }) {
         <SortBar onSortChange={handleSortChange} />
       </div>
       <div className="collection">
-        {sortedBotData.map((bot) => (
-          <Link key={bot.id} to={`botSpecs/${bot.id}`}>
-            <Bot bot={bot} />
-          </Link>
-        ))}
+        {Object.keys(filterObjectFromForm).length === 0 ||
+        Object.values(filterObjectFromForm).some((value) =>
+          isNotValueEmpty(value)
+        )
+          ? sortedBotData.map((bot) => (
+              <Link key={bot.id} to={`botSpecs/${bot.id}`}>
+                <Bot bot={bot} />
+              </Link>
+            ))
+          : filteredBotSatate.map((bot) => (
+              <Link key={bot.id} to={`botSpecs/${bot.id}`}>
+                <Bot bot={bot} />
+              </Link>
+            ))}
       </div>
     </div>
   );
@@ -138,3 +144,75 @@ export default BotList;
 //       return b.health - a.health;
 //     }
 //   })}
+
+// const filteredData = sortedBotData.filter((thisBot) => {
+//   if (
+//     filterClasses.Support &&
+//     filterClasses.Medic &&
+//     filterClasses.Captain &&
+//     filterClasses.Defender &&
+//     filterClasses.Witch &&
+//     filterClasses.Assault
+//   ) {
+//     return (
+//       thisBot.bot_class === "Support" ||
+//       thisBot.bot_class === "Medic" ||
+//       thisBot.bot_class === "Assault" ||
+//       thisBot.bot_class === "Defender" ||
+//       thisBot.bot_class === "Captain" ||
+//       thisBot.bot_class === "Witch"
+//     );
+//   } else if (
+//     filterClasses.Support &&
+//     filterClasses.Medic &&
+//     filterClasses.Captain &&
+//     filterClasses.Defender &&
+//     filterClasses.Witch
+//   ) {
+//     return (
+//       thisBot.bot_class === "Support" ||
+//       thisBot.bot_class === "Medic" ||
+//       thisBot.bot_class === "Defender" ||
+//       thisBot.bot_class === "Captain" ||
+//       thisBot.bot_class === "Witch"
+//     );
+//   } else if (
+//     filterClasses.Support &&
+//     filterClasses.Medic &&
+//     filterClasses.Captain &&
+//     filterClasses.Defender
+//   ) {
+//     return (
+//       thisBot.bot_class === "Support" ||
+//       thisBot.bot_class === "Medic" ||
+//       thisBot.bot_class === "Defender" ||
+//       thisBot.bot_class === "Captain"
+//     );
+//   } else if (
+//     filterClasses.Support &&
+//     filterClasses.Medic &&
+//     filterClasses.Captain
+//   ) {
+//     return (
+//       thisBot.bot_class === "Support" ||
+//       thisBot.bot_class === "Medic" ||
+//       thisBot.bot_class === "Captain"
+//     );
+//   } else if (filterClasses.Support && filterClasses.Medic) {
+//     return thisBot.bot_class === "Support" || thisBot.bot_class === "Medic";
+//   } else if (filterClasses.Support) {
+//     return thisBot.bot_class === "Support";
+//   } else if (filterClasses.Medic) {
+//     return thisBot.bot_class === "Medic";
+//   } else if (filterClasses.Defender) {
+//     return thisBot.bot_class === "Defender";
+//   } else if (filterClasses.Witch) {
+//     return thisBot.bot_class === "Witch";
+//   } else if (filterClasses.Assault) {
+//     return thisBot.bot_class === "Assault";
+//   } else if (filterClasses.Captain) {
+//     return thisBot.bot_class === "Captain";
+//   }
+//   // If neither Support nor Medic is selected, include all data items
+//   return true;
+// });

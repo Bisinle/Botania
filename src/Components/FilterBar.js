@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function FilterBar({ onSubmitHandle }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const buttonRef = useRef();
+
   const [botClass, setBotClass] = useState({
-    Support: false,
-    Medic: false,
-    Assault: false,
-    Defender: false,
-    Captain: false,
-    Witch: false,
+    Support: "",
+    Medic: "",
+    Assault: "",
+    Defender: "",
+    Captain: "",
+    Witch: "",
   });
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    setIsDisabled(!isDisabled);
   };
 
   const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
+    const { name, checked, value } = e.target;
+
     setBotClass({
       ...botClass,
-      [name]: checked,
+      [name]: checked ? name : "",
     });
   };
 
@@ -84,7 +89,9 @@ function FilterBar({ onSubmitHandle }) {
           </div>
         )}
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" id="btn" disabled={isDisabled} ref={buttonRef}>
+        Submit
+      </button>
     </form>
   );
 }
