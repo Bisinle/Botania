@@ -21,7 +21,7 @@ function BotArmy({ bot }) {
       setEnlistedBots((prevEnlistArmy) => [...prevEnlistArmy, bot]);
     }
   }, [bot]);
-  console.log(enlistedBots);
+  // console.log(enlistedBots);
   //update the enlisted Army bots with the newly filteredBots after removing one
   //and watch for the reduction change in filteredBots
   useEffect(() => {

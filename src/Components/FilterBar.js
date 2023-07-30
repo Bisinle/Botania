@@ -17,6 +17,7 @@ function FilterBar({ onSubmitHandle }) {
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
     setIsDisabled(!isDisabled);
+    console.log(isDropdownOpen);
   };
 
   const handleCheckboxChange = (e) => {
@@ -34,6 +35,8 @@ function FilterBar({ onSubmitHandle }) {
     // console.log("Selected Options:", botClass);
     // console.log(botClass.Support);
     onSubmitHandle(botClass);
+    setIsDropdownOpen(!isDropdownOpen);
+    console.log(isDropdownOpen);
   };
 
   return (
