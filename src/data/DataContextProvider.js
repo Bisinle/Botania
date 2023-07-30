@@ -8,14 +8,14 @@ function DataContextProvider({ children }) {
   const [deleteBotState, setDeleteBotState] = useState("");
 
   useEffect(() => {
-    fetch(`  http://localhost:4000/bots`)
+    fetch(` https://botania-server.onrender.com/bots`)
       .then((res) => res.json())
       .then((data) => setBotData(data));
   }, [deleteBotState, isDeleted]);
 
   function deleteBotCard(id) {
     console.log(id);
-    fetch(`  http://localhost:4000/bots/${id}`, {
+    fetch(`  https://botania-server.onrender.com/bots/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
