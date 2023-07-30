@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/konoha-bank/static/css/main.a1e41cfc.css",
-    "main.js": "/konoha-bank/static/js/main.2e35ad53.js",
-    "index.html": "/konoha-bank/index.html",
-    "main.a1e41cfc.css.map": "/konoha-bank/static/css/main.a1e41cfc.css.map",
-    "main.2e35ad53.js.map": "/konoha-bank/static/js/main.2e35ad53.js.map"
+    "main.css": "/bot-Army/static/css/main.a1e41cfc.css",
+    "main.js": "/bot-Army/static/js/main.f80fe5eb.js",
+    "index.html": "/bot-Army/index.html",
+    "main.a1e41cfc.css.map": "/bot-Army/static/css/main.a1e41cfc.css.map",
+    "main.f80fe5eb.js.map": "/bot-Army/static/js/main.f80fe5eb.js.map"
   },
   "entrypoints": [
     "static/css/main.a1e41cfc.css",
-    "static/js/main.2e35ad53.js"
+    "static/js/main.f80fe5eb.js"
   ]
 }
