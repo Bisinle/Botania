@@ -50,7 +50,7 @@ function BotArmy({ bot }) {
       <h1>To Baaattle !!</h1>
       {enlistedBots.map((bot) => {
         return (
-          <div className="card" key={bot.id}>
+          <div className="bot-army-card card" key={bot.id}>
             <img src={bot.avatar_url} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{bot.name}</h5>

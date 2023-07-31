@@ -7,12 +7,15 @@
   text-align: center;
 }
 
+.logo {
+  color: var(--mainColor);
+}
+
 /***********************************************************/
 
 .bot {
   width: 100%;
   margin: auto;
-
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -58,12 +61,17 @@
   border: 2px solid white;
   padding: 0;
 }
-
+.bot.card .catchphrase h6 {
+  color: #c1c3c8;
+  display: flex;
+  text-decoration: underline var(--mainColor);
+}
 .bot .card-img-top {
-  width: 90%;
-  margin-top: 0;
+  width: 70%;
+  margin: auto;
 }
 .bot .card .catchphrase {
+  margin-top: 10px;
 }
 
 .card-body {
@@ -121,7 +129,7 @@
 
 .bot-specs .bot.card {
   width: 350px;
-  height: 21rem;
+  height: 24rem;
   margin: 10px;
   text-decoration: none;
   background-color: #383f4f;
@@ -129,7 +137,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   border: none;
-  box-shadow: 0px 0px 10px 3px #08080a;
+  box-shadow: 0px 0px 10px 3px #000000;
   padding: 0;
   position: relative;
   border-radius: 20px;
@@ -172,7 +180,7 @@
 .bot-specs .card-body .class-catch-pharase .catch-phrase {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .bot-specs .card-body .class-catch-pharase .catch-phrase h6 {
   text-decoration: underline;
@@ -209,6 +217,111 @@
   right: 10px;
   color: var(--mainColor);
   cursor: pointer;
+}
+@media screen and (max-width: 746px) {
+  .bot.card {
+    width: 18rem;
+    height: 30rem;
+    margin: 10px;
+    text-decoration: none;
+    background-color: #383f4f;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid white;
+    padding: 0;
+  }
+  .bot .card-img-top {
+    width: 90%;
+    margin: auto;
+  }
+  .bot .card .catchphrase p {
+    margin-top: 10px;
+    color: rgb(115, 118, 129);
+    display: flex;
+    word-break: break-all;
+  }
+
+  .bot .card .catchphrase h6 {
+    margin-top: 20px;
+    color: #c4c6cc;
+    display: flex;
+    text-decoration: underline var(--mainColor);
+  }
+
+  .bot-specs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bot-spec-content {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bot-specs .card-body {
+  }
+  .bot-specs img {
+    margin-top: 20px;
+    width: 200px;
+    height: 14rem;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+  }
+
+  .bot-specs .btn {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .bot-specs button {
+    background-color: transparent;
+    width: 150px;
+    border: 2px solid var(--mainColor);
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  .bot-specs button:hover {
+    background-color: var(--mainColor);
+    color: black;
+  }
+  .bot-army {
+    width: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  .bot-army .card {
+    width: 200px;
+    height: 21rem;
+    margin: 10px;
+    text-decoration: none;
+    background-color: #383f4f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 2px solid white;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    color: #9da2ab;
+  }
 }
 /******************************************************/
 .bot-army {

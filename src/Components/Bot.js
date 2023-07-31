@@ -30,6 +30,7 @@ function Bot({ bot }) {
           <span>{classICon}</span>
         </div>
         <div className="catchphrase">
+          <h6>CatchPhrase</h6>
           <p className="card-text">{bot.catchphrase}</p>
         </div>
       </div>
