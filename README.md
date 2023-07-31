@@ -8,7 +8,7 @@ This repository contains several React components that are part of a larger proj
 
 #### <li>Mobile Responsive</li>
 
-<img src="./public/Images/mobile-responsive1.jpeg" height="200px"/> <img src="./public/Images/mobile-responsive5.jpeg" height="200px"/> <img src="./public/Images/mobile-responsive7.jpeg" height="200px"/> <img src="./public/Images/mobile-responsive8.jpeg" height="200px"/> <img src="./public/Images/mobile-responsive9.jpeg" height="200px"/>
+<img src="./public/Images/mobile-responsive1.jpeg" height="200px"/>--- <img src="./public/Images/mobile-responsive5.jpeg" height="200px"/>--- <img src="./public/Images/mobile-responsive7.jpeg" height="200px"/>--- <img src="./public/Images/mobile-responsive8.jpeg" height="200px"/>--- <img src="./public/Images/mobile-responsive9.jpeg" height="200px"/>
 
 #### <li>Click on each bot card</li>
 
