@@ -7,6 +7,15 @@
   text-align: center;
 }
 
+.logo {
+  color: var(--mainColor);
+}
+
+#ul {
+  background-color: #fff;
+  margin-left: 30px;
+}
+
 /***********************************************************/
 
 .bot {

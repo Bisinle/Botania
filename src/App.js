@@ -11,6 +11,7 @@ import { Route, Routes } from "react-router-dom";
 import Bot from "./Components/Bot";
 import BotArmy from "./Components/BotArmy";
 import SortBar from "./Components/SortBar";
+import NavBar from "./Components/NavBar";
 function App() {
   const [enlistArmy, setEnlistArmy] = useState([]);
   const [sortValueState, setSortValueState] = useState("");
@@ -65,6 +66,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <BotArmy bot={enlistArmy} />
       <Routes>
         <Route
