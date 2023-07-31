@@ -32,7 +32,7 @@ This repository contains several React components that are part of a larger proj
 
 #### <li>Sort by bot Attributes</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/sort-by-attribute.png"/>
+<img src="./public/Images/sort-by-attribute.png"/>
 
 ## Getting Started
 
