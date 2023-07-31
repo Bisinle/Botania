@@ -8,27 +8,27 @@ This repository contains several React components that are part of a larger proj
 
 #### <li>Click on each bot card</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/overView.png"/>
+<img src="./public/Images/overView.png"/>
 
 #### <li> View the specs for each bot</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/card-specs.png"/>
+<img src="./public/Images/card-specs.png"/>
 
 #### <li> Delete a bot form the DB</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/delete.png"/>
+<img src="./public/Images/delete.png"/>
 
 #### <li> Add a bot to your Army</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/enlis-bot.png"/>
+<img src="./public/Images/enlis-bot.png"/>
 
 #### <li>Navigate back to collection</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/navigate-back-to-collection.png"/>
+<img src="./public/Images/navigate-back-to-collection.png"/>
 
 #### <li>Remove bot from Army</li>
 
-<img src="/home/bisinle/Desktop/source/Development/code/phase2/codeChallenges/botania/public/Images/remove-bot-from-army.png"/>
+<img src="./public/Images/remove-bot-from-army.png"/>
 
 #### <li>Sort by bot Attributes</li>
 
